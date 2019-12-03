@@ -102,4 +102,14 @@ class Pemesanan extends CI_Controller
             redirect('pemesanan/pesanan');
         }
     }
+
+
+    public function deletePesanan($id_pesanan)
+    {
+        $this->db->where('id_pesanan', $id_pesanan);
+        $this->db->delete('pesanan');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">delete success!</div>');
+        redirect('pemesanan/pesanan');
+    }
 }
