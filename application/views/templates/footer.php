@@ -79,7 +79,32 @@
             }
         });
     });
-    </script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        console.log('ready')
+        $('.js-example-basic-single').select2({
+            theme: "bootstrap"
+        });
+    });
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.quantity').on('input', function() {
+            console.log('ready2')
+            var form = $(this).closest('form');
+            var totalAmt = 5000
+            var quantity = parseFloat($(this).val());
+            $("#harga").val(totalAmt * quantity || 0)
+            // form.find('.total_amount').text(totalAmt * quantity || 0);
+            // console.log(totalAmt * quantity)
+        })
+    });
+</script>
 
 
 </body>

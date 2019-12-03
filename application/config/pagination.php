@@ -1,6 +1,7 @@
 <?php
 
-$config['base_url'] = 'http://localhost/penggelcms/home/index';
+// $config['base_url'] = 'http://localhost/penggelcms/home/index';
+$config['base_url'] = 'http://192.168.64.2/penggelcms/home/index';
 $config['num_links'] = 2;
 
 

@@ -30,8 +30,11 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="<?= base_url(); ?>">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('/home/'); ?>">Post</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url('/home/about'); ?>">About</a>

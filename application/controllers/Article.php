@@ -15,7 +15,8 @@ class Article extends CI_Controller
 
         $data['about'] = $this->db->get('about')->result_array();
 
-        $data['title'] = 'About' . ' ( ' . count($data['about'])  . ' ) ';
+        // $data['title'] = 'About' . ' ( ' . count($data['about'])  . ' ) ';
+        $data['title'] = 'About';
 
         $this->form_validation->set_rules('title', 'Title', 'required');
 

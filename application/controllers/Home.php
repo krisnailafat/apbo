@@ -87,6 +87,16 @@ class Home extends CI_Controller
         $this->load->view('templates/article_footer');
     }
 
+    public function landing()
+    {   
+        $data['title'] = 'about';
+        $data['about'] = $this->db->get('about')->row_array();
+
+        $this->load->view('templates/article_header',$data);
+        $this->load->view('home/about',$data);
+        $this->load->view('templates/article_footer');
+    }
+
     public function contact()
     {   
         $data['title'] = 'contact';

@@ -107,15 +107,16 @@ class Auth extends CI_Controller
         $config = [
             'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'slametbudiarto04061962@gmail.com',
-            'smtp_pass' => 'bismill4h',
+            'smtp_user' => 'krsnlft@gmail.com',
+            'smtp_pass' => '22%teentitans',
             'smtp_port' => 465,
             'mailtype'  => 'html',
             'charset'   => 'utf-8',
             'newline'   => "\r\n"
         ];
+        $this->load->library('email', $config);
         $this->email->initialize($config);
-        $this->email->from('slametbudiarto04061962@gmail.com', 'Slamet Budiarto');
+        $this->email->from('krsnlft@gmail.com', 'Krisna ilafat');
         $this->email->to($this->input->post('email'));
         if ($type == 'verify') {
             $this->email->subject('Account Verification');
