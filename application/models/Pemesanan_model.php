@@ -13,8 +13,8 @@ class Pemesanan_model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
-    public function getPesananById($id)
+    public function getPesananById($id_pesanan)
     {
-        return $this->db->get_where('user_sub_menu', ['id' => $id])->row_array();
+        return $this->db->get_where('pesanan', ['id_pesanan' => $id_pesanan])->row_array();
     }
 }

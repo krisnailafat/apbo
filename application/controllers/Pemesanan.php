@@ -112,4 +112,44 @@ class Pemesanan extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">delete success!</div>');
         redirect('pemesanan/pesanan');
     }
+
+    public function editPesanan($id_pesanan)
+    {
+        $data['title'] = 'Edit Pesanan';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Pemesanan_model', 'pesanan');
+
+        $data['datapesanan'] = $this->pesanan->getPesanan();
+        $data['nama_pelanggan'] = $this->db->get('user')->result_array();
+        $data['pesananById'] = $this->pesanan->getPesananById($id_pesanan);
+
+        $this->form_validation->set_rules('nama', 'Nama Pelanggan', 'required');
+        $this->form_validation->set_rules('nomor_hp', 'Nomor HP', 'required');
+        $this->form_validation->set_rules('berat', 'Berat', 'required');
+        $this->form_validation->set_rules('harga', 'Harga', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pemesanan/editPesanan', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'nama' => $this->input->post('nama'),
+                'nomor_hp' => $this->input->post('nomor_hp'),
+                'berat' => $this->input->post('berat'),
+                'harga' => $this->input->post('harga'),
+                'status' => 'Belum selesai',
+                'admin' => 'admin',
+                'date_created' => time()
+            ];
+
+            $this->db->where('id_pesanan', $id_pesanan);
+            $this->db->update('pesanan', $data);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit pesanan success!</div>');
+            redirect('pemesanan/pesanan');
+        }
+    }
 }

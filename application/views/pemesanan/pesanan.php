@@ -61,7 +61,7 @@
                                             <td><?= $dp['admin']; ?></td>
                                             <td><?= date('d F Y', $dp['date_created']); ?></td>
                                             <td>
-                                                <a class="badge badge-success" href="#">Edit</a>
+                                                <a class="badge badge-success" href="<?= base_url('pemesanan/editPesanan/') . $dp['id_pesanan']; ?>">Edit</a>
                                                 <a class="badge badge-danger" href="<?= base_url('pemesanan/deletePesanan/') . $dp['id_pesanan']; ?>" onclick="return confirm('Are you sure delete this data?');">Delete</a>
                                             </td>
                                         </tr>

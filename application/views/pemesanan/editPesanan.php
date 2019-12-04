@@ -13,15 +13,16 @@
 
             <?= $this->session->flashdata('message'); ?>
 
-            <?php echo form_open_multipart('pemesanan/buatpesanan'); ?>
-            <input type="hidden" name="id_user" value="<?= $user['id']; ?>">
+    <form action="" method="post">
+            <input type="hidden" name="id_pesanan" value="<?= $pesananById['id_pesanan']; ?>">
             <div class="form-group row">
                 <label for="nama" class="col-sm-2 col-form-label">Nama Pelanggan</label>
                 <div class="col-sm-10 ">
                     <select name="nama" id="nama" class="js-example-basic-single js-state form-control">
-                        <option value="">Pilih nama pelanggan</option>
                         <?php foreach ($nama_pelanggan as $m) : ?>
-                            <option value="<?= $m['id']; ?>"><?= $m['name']; ?></option>
+                            <option value="<?= $m['id']; ?>" <?php if($pesananById['nama'] == $m['id']) {echo "selected"; } ?>>
+                                <?= $m['name']; ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -29,7 +30,7 @@
             <div class="form-group row">
                 <label for="nomor_hp" class="col-sm-2 col-form-label">Nomor HP</label>
                 <div class="col-sm-10">
-                    <input type="text" name="nomor_hp" class="form-control" id="nomor_hp" value="">
+                    <input type="text" name="nomor_hp" class="form-control" id="nomor_hp" value="<?= $pesananById['nomor_hp'] ?>">
 
                 </div>
             </div>
@@ -37,7 +38,7 @@
                 <label for="berat" class="col-sm-2 col-form-label">Berat Cucian</label>
                 <div class="col-sm-4 input-group">
                     <div class="input-group-append input-group">
-                        <input type="number" step="any" max="10" name="berat" class="form-control quantity" id="berat" value="">
+                        <input type="number" step="any" max="10" name="berat" class="form-control quantity" id="berat" value="<?= $pesananById['berat'] ?>">
                         <span class="input-group-text">Kg</span>
                     </div>
                 </div>
@@ -47,13 +48,14 @@
                 <div class="col-sm-4 input-group">
                     <div class="input-group-prepend input-group">
                         <span class="input-group-text">Rp.</span>
-                        <input type="number" name="harga" class="form-control" id="harga" value="" readonly>
+                        <input type="number" name="harga" class="form-control" id="harga" value="<?= $pesananById['harga'] ?>" readonly>
                     </div>
                 </div>
             </div>
-            <div class="form-group justify-content-end">
+            <div class="form-group  justify-content-end">
                 <div class="modal-footer ">
-                    <button type="submit" class="btn btn-primary" onclick="return confirm('Data sudah sesuai?');" >Buat Pesanan</button>
+                    <a href="<?= base_url('pemesanan/pesanan'); ?>" class="btn btn-secondary float-left">back</a>
+                    <button type="submit" class="btn btn-primary" onclick="return confirm('Data sudah sesuai?');" >Edit</button>
                 </div>
             </div>
         </div>
