@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Rapid Bootstrap Template</title>
@@ -41,7 +42,7 @@
   ============================-->
   <header id="header">
 
-    <div id="topbar">
+    <!-- <div id="topbar">
       <div class="container">
         <div class="social-links">
           <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
@@ -50,24 +51,26 @@
           <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="container">
 
       <div class="logo float-left">
         <!-- Uncomment below if you prefer to use an image logo -->
-        <h1 class="text-light"><a href="#intro" class="scrollto"><span>Rapid</span></a></h1>
+        <h1 class="text-light"><a href="#intro" class="scrollto"><span>Laundry</span></a></h1>
         <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
           <li class="active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#about">Tentang Kita</a></li>
+          <li><a href="#portfolio">Post</a></li>
+          <li><a href="#services">Layanan</a></li>
+          <li><a href="#testimonials">Team</a></li>
         </ul>
       </nav><!-- .main-nav -->
-      
+
     </div>
   </header><!-- #header -->
 
@@ -78,14 +81,14 @@
     <div class="container d-flex h-100">
       <div class="row justify-content-center align-self-center">
         <div class="col-md-6 intro-info order-md-first order-last">
-          <h2>Rapid Solutions<br>for Your <span>Business!</span></h2>
+          <h2>Selamat Datang<br>di <span>Laundry-an :)</span></h2>
           <div>
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="#about" class="btn-get-started scrollto">Mulai</a>
           </div>
         </div>
-  
+
         <div class="col-md-6 intro-img order-md-last order-first">
-          <img src="assets/landing/img/intro-img.svg" alt="" class="img-fluid">
+          <img src="assets/landing/img/intro-image.png" alt="" class="img-fluid">
         </div>
       </div>
 
@@ -110,21 +113,84 @@
 
           <div class="col-lg-7 col-md-6">
             <div class="about-content">
-              <h2>About Us</h2>
-              <h3>Odio sed id eos et laboriosam consequatur eos earum soluta.</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <p>Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque. Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus eum error. Et repudiandae eum iste qui et ut ab alias.</p>
+              <h2>Tetang kita</h2>
+              <h3>Aplikasi sistem informasi laundry</h3></br></br></br>
+              <p>Aplikasi sistem informasi laundry ini dibuat untuk mempermudah pekerjaan dalam mencatat dan memonitoring data laundry. </p>
+              <p>Dalam aplikasi ini terdapat fungsionalitas dasar seperti CRUD (Create Replace Update Delete), aplikasi ini diharapkan mampu mempermudah memonitor laundry an yang sudah selesai.</p>
+              <!-- <p>Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque. Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus eum error. Et repudiandae eum iste qui et ut ab alias.</p>
               <ul>
                 <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
                 <li><i class="ion-android-checkmark-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
                 <li><i class="ion-android-checkmark-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-              </ul>
+              </ul> -->
             </div>
           </div>
         </div>
       </div>
 
     </section><!-- #about -->
+
+
+    <section id="portfolio" class="section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <h3 class="section-title">Post Laundry-an</h3>
+        </header>
+
+        <div class="row portfolio-container">
+
+          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/landing/img/portfolio/app1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="#">App 1</a></h4>
+                <p>App</p>
+                <div>
+                  <a href="assets/landing/img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <img src="assets/landing/img/portfolio/web3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="#">Web 3</a></h4>
+                <p>Web</p>
+                <div>
+                  <a href="assets/landing/img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
+                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <?php foreach ($post as $po) : ?>
+
+            <div class="col-lg-4 col-md-6 portfolio-item wow fadeInUp" data-wow-duration="1s">
+              <div class="portfolio-wrap">
+                <img src="<?= base_url('assets/article/img/post/') . $po['image']; ?>" class="img-fluid" alt="" alt="<?= $po['title']; ?>">
+                <div class="portfolio-info">
+                  <h4><a href="#"><?= $po['title']; ?></a></h4>
+                  <p><?= word_limiter($po['body'], 20); ?></p>
+                  <div>
+                    <a href="<?= base_url('assets/article/img/post/') . $po['image']; ?>" class="link-preview" data-lightbox="portfolio" data-title="<?= $po['title']; ?>" title="Preview"><i class="ion ion-eye"></i></a>
+                    <a href="<?= base_url('home/detail/') . $po['slug_post']; ?>" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          <?php endforeach; ?>
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
 
 
     <!--==========================
@@ -134,32 +200,31 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Services</h3>
-          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+          <h3>Layanan</h3>
+          <p>Layanan dari aplikasi</p>
         </header>
 
         <div class="row">
 
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
             <div class="box">
-              <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <div class="icon" style="background: #fceef3;"><i class="ion-person" style="color: #ff689b;"></i></div>
+              <h4 class="title"><a href="">Akun</a></h4>
+              <p class="description">Masuk akun di aplikasi</p>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon" style="background: #e6fdfc;"><i class="ion-tshirt" style="color: #3fcdc7;"></i></div>
+              <h4 class="title"><a href="">Pesanan</a></h4>
+              <p class="description">Melihat pesanan laundry kamu tinggal ke aplikasi</p>
+            </div>
+          </div>
+          <!-- <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
             <div class="box">
               <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
               <h4 class="title"><a href="">Dolor Sitema</a></h4>
               <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-            <div class="box">
-              <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
@@ -183,13 +248,14 @@
               <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
               <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
       </div>
-	</section><!-- #services -->
-	
+    </section><!-- #services -->
+
+
 
     <!--==========================
       Clients Section
@@ -198,47 +264,47 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Testimonials</h3>
+          <h3>Team</h3>
         </header>
 
         <div class="row justify-content-center">
           <div class="col-lg-8">
 
             <div class="owl-carousel testimonials-carousel wow fadeInUp">
-    
+
               <div class="testimonial-item">
                 <img src="assets/landing/img/testimonial-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <h3>Krisna Ilafat</h3>
+                <h4>Programmer</h4>
                 <p>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  Nama saya krisna, harapan saya aplikasi ini berguna namun bisa dikembangkan lagi. Aplikasi ini dibuat memenuhi tugas dari matakuliah Aplikasi Pemrograman Berorientasi Objek.
                 </p>
               </div>
-    
+
               <div class="testimonial-item">
                 <img src="assets/landing/img/testimonial-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <h3>Akhmad Nizhami</h3>
+                <h4>Analis</h4>
                 <p>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  Dalam pembelajaran ini banyak ilmu dan pengalaman yang sangat berharga. Semoga bekal ilmu ini bisa seslalu dimanfaatkan dengan baik dan benar.
                 </p>
               </div>
-    
+
               <div class="testimonial-item">
                 <img src="assets/landing/img/testimonial-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <h3>Maryam Alizza</h3>
+                <h4>Designer</h4>
                 <p>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  Aplikasi yang bagus walaupun masih banyak kekurangan. Namun dalam pengerjaannya semaksimal mungkin dan berharap yang terbaik.
                 </p>
               </div>
-    
+
               <div class="testimonial-item">
                 <img src="assets/landing/img/testimonial-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
+                <h3>Sham Akbar</h3>
+                <h4>Ketua</h4>
                 <p>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  Tantangan belum selesai sampai disini. Evalusi dan pemeriksaan akan selalu dilihat. Kedepannya aplikasi akan bisa lebih bagus.
                 </p>
               </div>
 
@@ -265,25 +331,25 @@
 
             <div class="row">
 
-                <div class="col-sm-6">
+              <div class="col-sm-6">
 
-                  <div class="footer-info">
-                    <h3>Rapid</h3>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
-                  </div>
+                <div class="footer-info">
+                  <h3>Laundry</h3>
+                  <p>Aplikasi sistem informasi laundry ini dibuat untuk mempermudah pekerjaan dalam mencatat dan memonitoring data laundry.</p>
+                </div>
 
-                  <div class="footer-newsletter">
+                <!-- <div class="footer-newsletter">
                     <h4>Our Newsletter</h4>
                     <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem.</p>
                     <form action="" method="post">
                       <input type="email" name="email"><input type="submit"  value="Subscribe">
                     </form>
-                  </div>
+                  </div> -->
 
-                </div>
+              </div>
 
-                <div class="col-sm-6">
-                  <div class="footer-links">
+              <div class="col-sm-6">
+                <!-- <div class="footer-links">
                     <h4>Useful Links</h4>
                     <ul>
                       <li><a href="#">Home</a></li>
@@ -292,33 +358,33 @@
                       <li><a href="#">Terms of service</a></li>
                       <li><a href="#">Privacy policy</a></li>
                     </ul>
-                  </div>
+                  </div> -->
 
-                  <div class="footer-links">
-                    <h4>Contact Us</h4>
-                    <p>
-                      A108 Adam Street <br>
-                      New York, NY 535022<br>
-                      United States <br>
-                      <strong>Phone:</strong> +1 5589 55488 55<br>
-                      <strong>Email:</strong> info@example.com<br>
-                    </p>
-                  </div>
-
-                  <div class="social-links">
-                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                  </div>
-
+                <div class="footer-links">
+                  <h4>Contact Us</h4>
+                  <p>
+                    Jl. Cikutra No. 204A <br>
+                    Bandung<br>
+                    , Jawa Barat <br>
+                    <strong>Phone:</strong> +6282218191042<br>
+                    <strong>Email:</strong> krisnailafat@gmail.com<br>
+                  </p>
                 </div>
+
+                <div class="social-links">
+                  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                </div>
+
+              </div>
 
             </div>
 
           </div>
 
-          <div class="col-lg-6">
+          <!-- <div class="col-lg-6">
 
             <div class="form">
               
@@ -349,9 +415,9 @@
               </form>
             </div>
 
-          </div>
+          </div> -->
 
-          
+
 
         </div>
 
@@ -397,4 +463,5 @@
   <script src="assets/landing/js/main.js"></script>
 
 </body>
+
 </html>

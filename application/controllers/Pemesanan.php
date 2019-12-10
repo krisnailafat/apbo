@@ -152,4 +152,74 @@ class Pemesanan extends CI_Controller
             redirect('pemesanan/pesanan');
         }
     }
+
+    public function editBelumSelesaiPesanan($id_pesanan)
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Pemesanan_model', 'pesanan');
+
+
+        $data['datapesanan'] = $this->pesanan->getPesanan();
+        $data['nama_pelanggan'] = $this->db->get('user')->result_array();
+        $data['title'] = 'Data Pesanan ( ' . count($data['datapesanan']) . ' )';
+        $data['pesananById'] = $this->pesanan->getPesananById($id_pesanan);
+
+        $data = [
+            'status' => 'Belum selesai',
+            'admin' => 'admin',
+            'date_created' => time()
+        ];
+
+        $this->db->where('id_pesanan', $id_pesanan);
+        $this->db->update('pesanan', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit status pesanan success!</div>');
+        redirect('pemesanan/pesanan');
+    }
+    public function editDiProsesPesanan($id_pesanan)
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Pemesanan_model', 'pesanan');
+
+
+        $data['datapesanan'] = $this->pesanan->getPesanan();
+        $data['nama_pelanggan'] = $this->db->get('user')->result_array();
+        $data['title'] = 'Data Pesanan ( ' . count($data['datapesanan']) . ' )';
+        $data['pesananById'] = $this->pesanan->getPesananById($id_pesanan);
+
+        $data = [
+            'status' => 'Di Proses',
+            'admin' => 'admin',
+            'date_created' => time()
+        ];
+
+        $this->db->where('id_pesanan', $id_pesanan);
+        $this->db->update('pesanan', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit status pesanan success!</div>');
+        redirect('pemesanan/pesanan');
+    }
+    public function editSudahSelesaiPesanan($id_pesanan)
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Pemesanan_model', 'pesanan');
+
+
+        $data['datapesanan'] = $this->pesanan->getPesanan();
+        $data['nama_pelanggan'] = $this->db->get('user')->result_array();
+        $data['title'] = 'Data Pesanan ( ' . count($data['datapesanan']) . ' )';
+        $data['pesananById'] = $this->pesanan->getPesananById($id_pesanan);
+
+        $data = [
+            'status' => 'Sudah Selesai',
+            'admin' => 'admin',
+            'date_created' => time()
+        ];
+
+        $this->db->where('id_pesanan', $id_pesanan);
+        $this->db->update('pesanan', $data);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit status pesanan success!</div>');
+        redirect('pemesanan/pesanan');
+    }
 }

@@ -61,8 +61,17 @@
                                             <td><?= $dp['admin']; ?></td>
                                             <td><?= date('d F Y', $dp['date_created']); ?></td>
                                             <td>
-                                                <a class="badge badge-success" href="<?= base_url('pemesanan/editPesanan/') . $dp['id_pesanan']; ?>">Edit</a>
+                                                <a class="badge badge-warning" href="<?= base_url('pemesanan/editPesanan/') . $dp['id_pesanan']; ?>">Edit</a>
                                                 <a class="badge badge-danger" href="<?= base_url('pemesanan/deletePesanan/') . $dp['id_pesanan']; ?>" onclick="return confirm('Are you sure delete this data?');">Delete</a>
+                                                <!-- <a class="badge badge-success" href="" >Ganti Status</a> -->
+                                                <div class="dropdown">
+                                                    <a class="badge badge-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#fff;">Ganti Status</a>
+                                                    <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
+                                                        <a href="<?= base_url('pemesanan/editBelumSelesaiPesanan/') . $dp['id_pesanan']; ?>" class="btn btn-outline-primary btn-sm cm btn-block" onclick="return confirm('Ganti status?');">Belum selesai</a>
+                                                        <a href="<?= base_url('pemesanan/editDiProsesPesanan/') . $dp['id_pesanan']; ?>" class="btn btn-outline-primary btn-sm cm btn-block" onclick="return confirm('Ganti status?');">Di Proses</a>
+                                                        <a href="<?= base_url('pemesanan/editSudahSelesaiPesanan/') . $dp['id_pesanan']; ?>" class="btn btn-outline-primary btn-sm cm btn-block" onclick="return confirm('Ganti status?');">Sudah selesai</a>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
