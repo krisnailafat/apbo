@@ -3,6 +3,26 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+        <div class="row mb-5">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <!-- Role -->
@@ -75,7 +95,7 @@
         </div>
 
         <!-- MY Configuration -->
-        <div class="card mb-3 col-lg pl-5">
+        <!-- <div class="card mb-3 col-lg pl-5">
             <div class="row no-gutters">
                 <div class="col-md-3 mt-3">
                     <h5>Logo :</h5>
@@ -100,7 +120,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </div>
     <!-- /.container-fluid -->
