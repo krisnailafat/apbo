@@ -47,7 +47,7 @@ class Pemesanan extends CI_Controller
 
         $this->form_validation->set_rules('nama', 'Nama Pelanggan', 'required');
         $this->form_validation->set_rules('nomor_hp', 'Nomor HP', 'required');
-        $this->form_validation->set_rules('berat', 'Berat', 'required');
+        // $this->form_validation->set_rules('berat', 'Berat', 'required');s
         $this->form_validation->set_rules('harga', 'Harga', 'required');
 
         if ($this->form_validation->run() == false) {
@@ -214,12 +214,50 @@ class Pemesanan extends CI_Controller
         redirect('pemesanan/pesanan');
     }
 
+    //cetak pdf
     public function cetak()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title'] = 'Daftar Pesanan';
+        $data['isCetakPeriode'] = false;
+        $this->load->model('Pemesanan_model', 'pesanan');
+        $data['jumlahtotal'] = $this->pesanan->getJumlahTotal();
 
-        if ($this->form_validation->run() == false) {
-            $this->load->view('pemesanan/cetak', $data);
-        }        
+        $data['datapesanan'] = $this->pesanan->getPesananAll();
+        $html = $this->load->view('pemesanan/hasilprint', $data, true);
+
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->SetDisplayMode('fullpage');
+        // $data = $this->load->view('pemesanan/hasilprint', [], TRUE);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output('Daftar-Pesanan.pdf', \Mpdf\Output\Destination::INLINE);
+    }
+
+    //cetak periode
+    public function cetak_periode()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title'] = 'Daftar Pesanan';
+        $data['isCetakPeriode'] = true;
+        $this->load->model('Pemesanan_model', 'pesanan');
+
+        $tgl_a = $this->input->post('tgl_a');
+        $tgl1 = strtotime($tgl_a);
+        $tgl_b = $this->input->post('tgl_b');
+        $tgl2 = strtotime($tgl_b . '+ 1 day');
+
+        $data['dtpesanan'] = $this->pesanan->getPesananPeriode($tgl1, $tgl2);
+        $data['jumlahtotal'] = $this->pesanan->getJumlahTotalPeriode($tgl1, $tgl2);
+        
+        // echo strtotime("2019-12-01");
+        // var_dump($tgla);
+        // die();
+
+        $html = $this->load->view('pemesanan/hasilprint', $data, true);
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->SetDisplayMode('fullpage');
+        // $data = $this->load->view('pemesanan/hasilprint', [], TRUE);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output('Daftar-Pesanan.pdf', \Mpdf\Output\Destination::INLINE);
     }
 }

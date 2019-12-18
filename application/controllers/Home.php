@@ -101,9 +101,9 @@ class Home extends CI_Controller
     {
         $data['title'] = 'contact';
 
-        $this->load->view('templates/article_header', $data);
-        $this->load->view('home/contact', $data);
-        $this->load->view('templates/article_footer');
+        // $this->load->view('templates/article_header', $data);
+        // $this->load->view('home/contact', $data);
+        // $this->load->view('templates/article_footer');
     }
 
     public function caripesanan()

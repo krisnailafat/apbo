@@ -69,7 +69,7 @@
                                             <td><?= $dp['berat']; ?></td>
                                             <td><?= $dp['sprei']; ?></td>
                                             <td><?= $dp['selimut']; ?></td>
-                                            <td><?= $dp['harga']; ?></td>
+                                            <td>Rp. <?php echo number_format($dp['harga'], 2, ',', '.')  ?></td>
                                             <td><?= $dp['status']; ?></td>
                                             <td><?= $dp['admin']; ?></td>
                                             <td><?= date('d F Y', $dp['date_created']); ?></td>
@@ -111,11 +111,25 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <form action="<?= site_url('pemesanan/cetak_periode')  ?>" method="post">
+                        <div class="form-group row d-flex ">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Dari</label>
+                            <div class="col-sm-5">
+                                <input type="date" class="form-control" name="tgl_a" id="tgl_a" required>
+                            </div>
+                        </div>
+                        <div class="form-group row d-flex ">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Sampai</label>
+                            <div class="col-sm-5">
+                                <input type="date" class="form-control" name="tgl_b" required>
+                            </div>
+                        </div>
+                        <button type="submit" name="cetak_periode" value="cetak" class="btn btn-primary" target="_blank">Cetak Periode</a>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="cetak" type="button" class="btn btn-primary" target="_blank">Cetak Semua</a>
+                    <a href="<?= site_url('pemesanan/cetak')  ?>" type="button" class="btn btn-primary" target="_blank">Cetak Semua</a>
                 </div>
             </div>
         </div>

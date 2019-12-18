@@ -50,7 +50,7 @@
                                     <tr>
                                         <td><?= $dp['nomor_hp']; ?></td>
                                         <td><?= substr($dp['name'], 0, 3); ?>***</td>
-                                        <td><?= $dp['harga']; ?></td>
+                                        <td>Rp. <?php echo number_format($dp['harga'], 2, ',', '.')  ?></td>
                                         <td><?= $dp['status']; ?></td>
                                         <td><?= date('d F Y', $dp['date_created']); ?></td>
                                     </tr>

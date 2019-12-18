@@ -21,10 +21,9 @@
 <div class="container">
 
     <!-- category -->
-    <div class="container">
+    <!-- <div class="container">
         <div class="row mt-3">
             <div class="col">
-                <!-- Example single danger button -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categories
@@ -37,7 +36,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- end category -->
 
     <div class="row">
