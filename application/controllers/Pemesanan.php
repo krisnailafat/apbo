@@ -35,35 +35,6 @@ class Pemesanan extends CI_Controller
             $this->load->view('pemesanan/pesanan', $data);
             $this->load->view('templates/footer');
         }
-        // else {
-        //     $title = $this->input->post('title');
-        //     $deskritpion = $this->input->post('deskription');
-        //     $upload_image = $_FILES['image'];
-
-        //     if ($upload_image) {
-        //         $config['allowed_types'] = 'gif|jpg|png';
-        //         $config['max_size'] = '2048';
-        //         $config['upload_path'] = './assets/article/img/about/';
-
-        //         $this->load->library('upload', $config);
-
-        //         if (!$this->upload->do_upload('image')) {
-        //             echo $this->upload->display_errors();
-        //             die();
-        //         } else {
-        //             $data = [
-        //                 'title' => $this->input->post('title'),
-        //                 'deskription' => $this->input->post('deskription'),
-        //                 'image' => $this->upload->data('file_name')
-        //             ];
-
-        //             $this->db->insert('about', $data);
-
-        //             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New About Added!</div>');
-        //             redirect('article/about');
-        //         }
-        //     }
-        // }
     }
 
     public function buatpesanan()
@@ -90,6 +61,8 @@ class Pemesanan extends CI_Controller
                 'nama' => $this->input->post('nama'),
                 'nomor_hp' => $this->input->post('nomor_hp'),
                 'berat' => $this->input->post('berat'),
+                'sprei' => $this->input->post('sprei'),
+                'selimut' => $this->input->post('selimut'),
                 'harga' => $this->input->post('harga'),
                 'status' => 'Belum selesai',
                 'admin' => 'admin',
@@ -102,7 +75,24 @@ class Pemesanan extends CI_Controller
             redirect('pemesanan/pesanan');
         }
     }
+    public function userall()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['nama_pelanggan'] = $this->db->get('user')->result_array();
+        // $id = $this->input->post('name');
+        // $data['nama_pelanggan'] = $this->db->get_where('user', ['id' => $id])->row_array();;
 
+        $data = [
+            'nama' => $data['nama_pelanggan'],
+        ];
+        // dd($id);
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(200)
+            ->set_output(json_encode(array(
+                'data' => $data
+            )));
+    }
 
     public function deletePesanan($id_pesanan)
     {
@@ -199,6 +189,7 @@ class Pemesanan extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit status pesanan success!</div>');
         redirect('pemesanan/pesanan');
     }
+
     public function editSudahSelesaiPesanan($id_pesanan)
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -221,5 +212,14 @@ class Pemesanan extends CI_Controller
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Edit status pesanan success!</div>');
         redirect('pemesanan/pesanan');
+    }
+
+    public function cetak()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('pemesanan/cetak', $data);
+        }        
     }
 }

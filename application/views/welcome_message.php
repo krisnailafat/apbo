@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Rapid Bootstrap Template</title>
+  <title>Laundry</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -68,6 +68,8 @@
           <li><a href="#portfolio">Post</a></li>
           <li><a href="#services">Layanan</a></li>
           <li><a href="#testimonials">Team</a></li>
+          <li><a href="<?= base_url("auth");  ?>">Login</a></li>
+          <li><a href="<?= base_url("home/caripesanan") ?>">Cari Pesanan</a></li>
         </ul>
       </nav><!-- .main-nav -->
 
@@ -380,6 +382,39 @@
 
               </div>
 
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="form">
+
+              <h4>Send us a message</h4>
+              <!-- <p>Silahkan hubungi kami.</p> -->
+              <form action="<?= base_url('landing/contact'); ?>" method="POST" role="form" class="contactForm">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
+
+                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                <div id="errormessage"></div>
+
+                <div class="text-center"><button type="submit" title="Send Message" value="Send">Send Message</button></div>
+              </form>
             </div>
 
           </div>

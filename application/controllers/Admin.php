@@ -8,6 +8,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        $this->load->library('form_validation');
         $this->load->model('Admin_model', 'admin');
     }
 
@@ -28,7 +29,16 @@ class Admin extends CI_Controller
         $role = $this->db->get('user_role')->result_array();
         $data['role'] = count($role);
 
+        $pesanan = $this->db->get('pesanan')->result_array();
+        $data['jumlahPesanan'] = count($pesanan);
+
+        $user = $this->db->get('user')->result_array();
+        $data['jumlahUser'] = count($user);
+
         $data['configuration'] = $this->db->get('configuration')->row_array();
+
+        $data['judulBuatPesanan'] = "Buat Pesanan Laundry";
+        $data['judulDaftarUser'] = "Daftar User Baru";
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -249,15 +259,70 @@ class Admin extends CI_Controller
     public function datauser()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
         $data['datauser'] = $this->admin->getRole();
-
         $data['title'] = 'Data User ( ' . count($data['datauser']) . ' )';
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/datauser', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('name', 'name', 'required');
+        $this->form_validation->set_rules('nomorHp', 'Nomor HP', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/datauser', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $email = $this->input->post('email', true);
+            $data = [
+                'name' => htmlspecialchars($this->input->post('name', true)),
+                'email' => htmlspecialchars($email),
+                'image' => 'default.jpg',
+                'nomor_hp' => $this->input->post('nomorHp'),
+                'password' => password_hash($this->input->post('nomorHp'), PASSWORD_DEFAULT),
+                'role_id' => 2,
+                'is_active' => 1,
+                'date_created' => time()
+            ];
+
+            $this->db->insert('user', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User baru telah dibuat</div>');
+            redirect('admin/datauser');
+        }
+    }
+
+    public function tambahuser()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['datauser'] = $this->admin->getRole();
+        $data['title'] = 'Data User ( ' . count($data['datauser']) . ' )';
+
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('name', 'Nama', 'required');
+        $this->form_validation->set_rules('nomorHp', 'Nomor HP', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/tambahuser', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $email = $this->input->post('email', true);
+            $data = [
+                'name' => htmlspecialchars($this->input->post('name', true)),
+                'email' => htmlspecialchars($email),
+                'image' => 'default.jpg',
+                'nomor_hp' => $this->input->post('nomorHp'),
+                'password' => password_hash($this->input->post('nomorHp'), PASSWORD_DEFAULT),
+                'role_id' => 2,
+                'is_active' => 1,
+                'date_created' => time()
+            ];
+
+            $this->db->insert('user', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User baru telah dibuat</div>');
+            redirect('admin');
+        }
     }
 }

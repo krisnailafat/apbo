@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-tshirt"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">My Blog</div>
+        <div class="sidebar-brand-text mx-3">Laundry</div>
     </a>
 
 

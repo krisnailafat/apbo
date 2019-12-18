@@ -22,9 +22,9 @@ class Home extends CI_Controller
         $this->load->library('pagination');
 
         // ambil data keyword
-        if($this->input->post('submit')) {
+        if ($this->input->post('submit')) {
             $data['keyword'] = $this->input->post('keyword');
-            $this->session->set_userdata('keyword',$data['keyword']);
+            $this->session->set_userdata('keyword', $data['keyword']);
         } else {
             $data['keyword'] = $this->session->userdata('keyword');
         }
@@ -67,42 +67,60 @@ class Home extends CI_Controller
     }
 
     public function kategori($id_kategori)
-    {   
+    {
         $data['title'] = 'category';
         $data['allPost'] = $this->article->getPostByKategori($id_kategori);
         $data['allkategori'] = $this->db->get('kategori')->result_array();
 
-        $this->load->view('templates/article_header',$data);
-        $this->load->view('home/all-kategori',$data);
+        $this->load->view('templates/article_header', $data);
+        $this->load->view('home/all-kategori', $data);
         $this->load->view('templates/article_footer');
     }
 
     public function about()
-    {   
+    {
         $data['title'] = 'about';
         $data['about'] = $this->db->get('about')->row_array();
 
-        $this->load->view('templates/article_header',$data);
-        $this->load->view('home/about',$data);
+        $this->load->view('templates/article_header', $data);
+        $this->load->view('home/about', $data);
         $this->load->view('templates/article_footer');
     }
 
     public function landing()
-    {   
+    {
         $data['title'] = 'about';
         $data['about'] = $this->db->get('about')->row_array();
 
-        $this->load->view('templates/article_header',$data);
-        $this->load->view('home/about',$data);
+        $this->load->view('templates/article_header', $data);
+        $this->load->view('home/about', $data);
         $this->load->view('templates/article_footer');
     }
 
     public function contact()
-    {   
+    {
         $data['title'] = 'contact';
 
-        $this->load->view('templates/article_header',$data);
-        $this->load->view('home/contact',$data);
+        $this->load->view('templates/article_header', $data);
+        $this->load->view('home/contact', $data);
         $this->load->view('templates/article_footer');
+    }
+
+    public function caripesanan()
+    {
+        $data['title'] = 'Cari Pesanan';
+        $this->load->model('Pemesanan_model', 'pesanan');
+
+        $data['keyword'] = '';
+        if ($this->input->post('submit')) {
+            $data['keyword'] = $this->input->post('keyword');
+        }
+        // $data['datapesanan'] = $this->db->get_where('pesanan', ['nomor_hp' => $data['keyword']])->result_array();
+        $data['datapesanan'] = $this->pesanan->getCariPesanan($data['keyword']);
+
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('home/caripesanan', $data);
+        $this->load->view('templates/footer');
     }
 }

@@ -38,7 +38,7 @@ class Auth extends CI_Controller
                     $data = [
                         'email' => $user['email'],
                         'role_id' => $user['role_id'],
-                        'id'=> $user['id']
+                        'id' => $user['id']
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
@@ -83,10 +83,11 @@ class Auth extends CI_Controller
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
                 'email' => htmlspecialchars($email),
+                'nomor_hp' => $this->input->post('nomor_hp'),
                 'image' => 'default.jpg',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 2,
-                'is_active' => 0,
+                'is_active' => 1,
                 'date_created' => time()
             ];
             // siapkan token
@@ -98,8 +99,8 @@ class Auth extends CI_Controller
             ];
             $this->db->insert('user', $data);
             $this->db->insert('user_token', $user_token);
-            $this->_sendEmail($token, 'verify');
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please activate your account</div>');
+            // $this->_sendEmail($token, 'verify');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Daftar Berhasil! Silahkan Login :)</div>');
             redirect('auth');
         }
     }
@@ -115,9 +116,9 @@ class Auth extends CI_Controller
             'charset'   => 'utf-8',
             'newline'   => "\r\n"
         ];
-        $this->load->library('email', $config);
         $this->email->initialize($config);
-        $this->email->from('krsnlft@gmail.com', 'Krisna ilafat');
+        $this->load->library('email', $config);
+        $this->email->from('krsnlft@gmail.com', 'Laundry');
         $this->email->to($this->input->post('email'));
         if ($type == 'verify') {
             $this->email->subject('Account Verification');

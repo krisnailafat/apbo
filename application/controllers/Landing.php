@@ -68,4 +68,17 @@ class Landing extends CI_Controller
 
 		$this->load->view('welcome_message', $data);
 	}
+	public function contact()
+	{
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$message = $_POST['message'];
+		$subject = $_POST['subject'];
+		// $subject = "Contact Form";
+		$formcontent = "From: $name \n Message: $message";
+		$recipient = "krisnailafat@gmail.com";
+		$mailheader = "From: $email \r\n";
+		mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
+		echo "Thank You!";
+	}
 }

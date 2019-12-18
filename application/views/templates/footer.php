@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Starter <?= date('Y'); ?></span>
+            <span>Copyright &copy; Laundrya <?= date('Y'); ?></span>
         </div>
     </div>
 </footer>
@@ -94,18 +94,99 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        let berat = 0;
+        let sprei = 0;
+        let selimut = 0;
+        let harga = 0;
         $('.quantity').on('input', function() {
-            console.log('ready2')
+            // console.log('ready2')
             var form = $(this).closest('form');
             var totalAmt = 5000
             var quantity = parseFloat($(this).val());
-            $("#harga").val(totalAmt * quantity || 0)
-            // form.find('.total_amount').text(totalAmt * quantity || 0);
-            // console.log(totalAmt * quantity)
+            // result = totalAmt * quantity || 0
+            berat = totalAmt * quantity || 0
+            // $("#harga").val(result)
+            if ($.isNumeric($(this).val())) {
+                total_amount();
+            } else {
+                berat = 0
+                total_amount();
+            }
         })
+
+        $('.quantity-sprei').on('input', function() {
+            var form = $(this).closest('form');
+            var quantity = parseFloat($(this).val());
+            var totalAmt = 10000
+            // var quantity = parseFloat($(this).val());
+            sprei = totalAmt * quantity || 0
+            // console.log('result', sprei)
+            if ($.isNumeric($(this).val())) {
+                total_amount();
+            } else {
+                sprei = 0
+                total_amount();
+            }
+        })
+
+        $('.quantity-selimut').on('input', function() {
+            var form = $(this).closest('form');
+            var quantity = parseFloat($(this).val());
+            var totalAmt = 15000
+            // var quantity = parseFloat($(this).val());
+            selimut = totalAmt * quantity || 0
+            // console.log('result', sprei)
+            if ($.isNumeric($(this).val())) {
+                total_amount();
+            } else {
+                selimut = 0
+                total_amount();
+            }
+        })
+
+        var total_amount = function() {
+            harga = berat + sprei + selimut || 0
+            // idr
+            $("#harga").val(harga)
+            console.log('result', parseFloat(harga))
+        }
     });
 </script>
 
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('#newTambahUserModal').modal('show');
+    });
+</script>
+
+<script type="text/javascript">
+    // $(document).ready(function() {
+    //     var passo = "<";
+    //     console.log(passo)
+
+    // })
+
+    function nomorhp() {
+        var x = document.getElementById("nama").value;
+        console.log(x);
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>/pemesanan/userall",
+            // data: JSON.stringify({
+            //     id: x
+            // }),
+            success: function(result) {
+                // console.log('result', result.data.nama)
+                var arr = result.data.nama;
+                let hasil = arr.filter(o => o.id === x);
+                let nomor_hp = hasil[0].nomor_hp;
+                // console.log('result', hasil[0].name)
+                $("#nomor_hp").val(nomor_hp);
+                // $("#div1").html(result);
+            }
+        });
+    }
+</script>
 
 </body>
 

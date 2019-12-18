@@ -21,6 +21,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="nomor_hp" class="col-sm-2 col-form-label">Nomor Hp</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="nomor_hp" class="form-control" id="nomor_hp" value="<?= $user['nomor_hp']; ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <div class="col-sm-2">Picture</div>
                         <div class="col-sm-10">
                             <div class="row">

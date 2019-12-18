@@ -2,23 +2,31 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+        <h1 class="h3 mb-3 text-gray-800"><?= $title; ?></h1>
         <div class="row mb-5">
-            <div class="col-sm-6">
+            <div class="col-sm-6 mb-3">
                 <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="row no-gutters align-items-center">
+                        <div class="card-body ">
+                            <h5 class="card-title"><?= $judulBuatPesanan ?></h5>
+                            <a href="<?= base_url('pemesanan/buatpesanan/'); ?>" class="btn btn-primary">Buat Pesanan +</a>
+                        </div>
+                        <div class="col-auto mr-5">
+                            <i class="fas fa-cart-plus fa-5x text-gray-300"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 mb-3">
                 <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="row no-gutters align-items-center">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $judulDaftarUser ?></h5>
+                            <a href="<?= base_url('admin/tambahuser/'); ?>" data-target="#newTambahUserModal" data-target="newTambahUserModal" class="btn btn-primary">Daftar User Baru +</a>
+                        </div>
+                        <div class="col-auto mr-5">
+                            <i class="fas fa-user-plus fa-5x text-gray-300"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -27,70 +35,117 @@
         <div class="row">
             <!-- Role -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Role</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $role; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+                <a href="<?= base_url('pemesanan/pesanan/'); ?>">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Daftar Pesanan</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlahPesanan; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-tshirt fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <a href="<?= base_url('admin/datauser/'); ?>">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">User</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlahUser; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Role -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <a href="<?= base_url('admin/role/'); ?>">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Role</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $role; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
 
             <!-- Kategori Post -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kategori Post</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $kategori_post; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-fw fa-thumbtack fa-2x text-gray-300"></i>
+                <a href="<?= base_url('article/kategori/'); ?>">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kategori Post</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $kategori_post; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-fw fa-thumbtack fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Post -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Post</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $post ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-fw fa-paper-plane fa-2x text-gray-300"></i>
+                <a href="<?= base_url('article/post/'); ?>">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Post</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $post ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-fw fa-paper-plane fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Menu management -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Menu Management</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $user_menu ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-folder-open fa-2x text-gray-300"></i>
+                <a href="<?= base_url('menu'); ?>">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Menu Management</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $user_menu ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-folder-open fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 

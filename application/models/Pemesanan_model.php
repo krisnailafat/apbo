@@ -17,4 +17,22 @@ class Pemesanan_model extends CI_Model
     {
         return $this->db->get_where('pesanan', ['id_pesanan' => $id_pesanan])->row_array();
     }
+
+    public function getCariPesanan($keyword = null)
+    {
+
+        if ($keyword) {
+            $this->db->like('nomor_hp', $keyword);
+            $query = "SELECT `pesanan`.*, `user`.`name` 
+                    FROM `pesanan`
+                     JOIN `user` ON `pesanan`.`nama` = `user`.`id` 
+                     WHERE `pesanan`.`nomor_hp` = $keyword
+                    ";
+            return $this->db->query($query)->result_array();
+        }
+        // $this->db->where(['nomor_hp' => $keyword]);
+        // return $this->db->get('pesanan')->result_array();
+
+
+    }
 }

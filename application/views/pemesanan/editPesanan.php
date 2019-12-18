@@ -39,7 +39,29 @@
                 <div class="col-sm-4 input-group">
                     <div class="input-group-append input-group">
                         <input type="number" step="any" max="10" name="berat" class="form-control quantity" id="berat" value="<?= $pesananById['berat'] ?>">
-                        <span class="input-group-text">Kg</span>
+                        <span class="input-group-text">Kg @5.000</span>
+                    </div>
+                </div>
+                <label for="sprei" class="col-sm-2 col-form-label">Sprei</label>
+                <div class="col-sm-4 input-group">
+                    <div class="input-group-append input-group">
+                        <input type="number" step="any" max="10" name="sprei" class="form-control quantity-sprei" id="sprei" value="<?= $pesananById['sprei'] ?>">
+                        <span class="input-group-text">Kg @10.000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label  class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-4 input-group">
+                    <div class="input-group-append input-group">
+            
+                    </div>
+                </div>
+                <label for="selimut" class="col-sm-2 col-form-label">Selimut</label>
+                <div class="col-sm-4 input-group">
+                    <div class="input-group-append input-group">
+                        <input type="number" step="any" max="10" name="selimut" class="form-control quantity-selimut" id="selimut" value="<?= $pesananById['selimut'] ?>">
+                        <span class="input-group-text">Kg @15.000</span>
                     </div>
                 </div>
             </div>

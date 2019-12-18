@@ -11,7 +11,14 @@
 
                 <?= $this->session->flashdata('message'); ?>
 
-                <a href="<?= base_url('pemesanan/buatpesanan')  ?>" class="btn btn-primary btn-lg mb-2">Buat Pesanan + </a>
+                <div class="row justify-content-between align-items-end mb-2">
+                    <div class="col-auto">
+                        <a href="<?= base_url('pemesanan/buatpesanan')  ?>" class="btn btn-primary btn-lg ">Buat Pesanan + </a>
+                    </div>
+                    <div class="col-auto">
+                        <button href="" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-print"></i> Cetak PDF</button>
+                    </div>
+                </div>
 
                 <!-- DataTales -->
                 <div class="card shadow mb-4">
@@ -26,6 +33,8 @@
                                         <th scope="col">Nama</th>
                                         <th scope="col">Nomor Hp</th>
                                         <th scope="col">Berat</th>
+                                        <th scope="col">Sprei</th>
+                                        <th scope="col">Selimut</th>
                                         <th scope="col">Harga</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Dibuat</th>
@@ -40,6 +49,8 @@
                                         <th scope="col">Nama</th>
                                         <th scope="col">Nomor Hp</th>
                                         <th scope="col">Berat</th>
+                                        <th scope="col">Sprei</th>
+                                        <th scope="col">Selimut</th>
                                         <th scope="col">Harga</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Dibuat</th>
@@ -49,13 +60,15 @@
                                 </tfoot>
                                 <tbody>
                                     <?php $i = 1;
-                                    foreach ($datapesanan as $dp) : ?>
+                                            foreach ($datapesanan as $dp) : ?>
                                         <tr>
                                             <th scope="row"><?= $i++; ?></th>
                                             <td><?= $dp['id_pesanan']; ?></td>
                                             <td><?= $dp['name']; ?></td>
                                             <td><?= $dp['nomor_hp']; ?></td>
                                             <td><?= $dp['berat']; ?></td>
+                                            <td><?= $dp['sprei']; ?></td>
+                                            <td><?= $dp['selimut']; ?></td>
                                             <td><?= $dp['harga']; ?></td>
                                             <td><?= $dp['status']; ?></td>
                                             <td><?= $dp['admin']; ?></td>
@@ -86,6 +99,27 @@
 
     </div>
     <!-- /.container-fluid -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="cetak" type="button" class="btn btn-primary" target="_blank">Cetak Semua</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </div>
     <!-- End of Main Content -->
